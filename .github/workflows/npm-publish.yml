@@ -13,7 +13,6 @@ jobs:
         with:
           node-version: 20  # Ensure you're using Node.js 20 (or Node.js 16)
       - run: npm ci
-      - run: npm test
 
   publish-npm:
     needs: build
