@@ -1,0 +1,45 @@
+name: Publish to npm
+
+# Trigger the workflow on push to the main branch or when a new tag is created
+on:
+  push:
+    branches:
+      - main          # You can change 'main' to your default branch name
+    tags:
+      - 'v*.*.*'       # Trigger on version tags, e.g., v1.0.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest  # This specifies the operating system for the runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Check out the repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # Set up Node.js environment
+        with:
+          node-version: '16'  # Specify the Node.js version to use (adjust as needed)
+
+      - name: Install dependencies
+        run: npm install  # Install project dependencies
+
+      - name: Run tests (optional but recommended)
+        run: npm test  # Run tests to ensure everything is working
+
+      - name: Bump version and generate changelog
+        run: |
+          npm install -g standard-version  # Install standard-version globally
+          standard-version --release-as minor  # Change 'minor' to 'patch' or 'major' as needed
+          git push --follow-tags  # Push the updated version tags to GitHub
+
+      - name: Publish package to npm
+        run: npm publish  # Publish the package to npm
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}  # Use your npm token stored in GitHub Secrets
+
+      - name: Push changes back to GitHub (optional)
+        run: |
+          git push --follow-tags  # Push the version bump changes back to GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub's built-in token for authentication
