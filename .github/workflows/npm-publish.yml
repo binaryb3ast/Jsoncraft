@@ -1,45 +1,33 @@
-name: Publish to npm
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-# Trigger the workflow on push to the main branch or when a new tag is created
+name: Node.js Package
+
 on:
-  push:
-    branches:
-      - main          # You can change 'main' to your default branch name
-    tags:
-      - 'v*.*.*'       # Trigger on version tags, e.g., v1.0.0
+  release:
+    types: [created]
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest  # This specifies the operating system for the runner
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2  # Check out the repository
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2  # Set up Node.js environment
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Specify the Node.js version to use (adjust as needed)
+          node-version: 20
+      - run: npm ci
+      - run: npm test
 
-      - name: Install dependencies
-        run: npm install  # Install project dependencies
-
-      - name: Run tests (optional but recommended)
-        run: npm test  # Run tests to ensure everything is working
-
-      - name: Bump version and generate changelog
-        run: |
-          npm install -g standard-version  # Install standard-version globally
-          standard-version --release-as minor  # Change 'minor' to 'patch' or 'major' as needed
-          git push --follow-tags  # Push the updated version tags to GitHub
-
-      - name: Publish package to npm
-        run: npm publish  # Publish the package to npm
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}  # Use your npm token stored in GitHub Secrets
-
-      - name: Push changes back to GitHub (optional)
-        run: |
-          git push --follow-tags  # Push the version bump changes back to GitHub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub's built-in token for authentication
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
