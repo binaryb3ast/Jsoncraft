@@ -1,5 +1,5 @@
-// Import the transpiled JsonKit from dist folder (JavaScript version)
-const { JsonKit } = require('./dist/jsonkit.js');
+// Import the transpiled JsonCraft from dist folder (JavaScript version)
+const { JsonCraft } = require('./dist/JsonCraft.js');
 
-// Export the JsonKit class for external use
-module.exports = { JsonKit };
+// Export the JsonCraft class for external use
+module.exports = { JsonCraft };
