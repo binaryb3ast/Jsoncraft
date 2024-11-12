@@ -1,17 +1,17 @@
 {
-  "name": "jsonkit",
+  "name": "jsoncraft",
   "version": "1.0.0",
   "description": "A lightweight and easy-to-use library for manipulating and accessing data within JSON objects.",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/binaryb3ast/jsonkit"
+    "url": "https://github.com/binaryb3ast/JsonCraft"
   },
   "bugs": {
-    "url": "https://github.com/binaryb3ast/jsonkit/issues"
+    "url": "https://github.com/binaryb3ast/JsonCraft/issues"
   },
-  "homepage": "https://github.com/binaryb3ast/jsonkit#readme",
+  "homepage": "https://github.com/binaryb3ast/JsonCraft#readme",
   "contributors": [
     "BinaryBeast <behnammnasehi@gmail.com>"
   ],

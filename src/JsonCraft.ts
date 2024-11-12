@@ -3,7 +3,7 @@ type JsonObject = { [key: string]: any };
 /**
  * A utility class for handling JSON objects with various operations.
  */
-export class JsonKit {
+export class JsonCraft {
     /**
      * Retrieves a value from a JSON object at a specified path.
      * @param {Object} obj - The JSON object to retrieve from.
@@ -55,7 +55,7 @@ export class JsonKit {
      * @returns {boolean} - True if the path exists.
      */
     static hasPath(obj: JsonObject, path: string | string[]): boolean {
-        return JsonKit.getValue(obj, path) !== undefined;
+        return JsonCraft.getValue(obj, path) !== undefined;
     }
 
     /**
@@ -105,7 +105,7 @@ export class JsonKit {
 
         for (const key in source) {
             if (source[key] instanceof Object && target[key]) {
-                target[key] = JsonKit.mergeObjects(target[key], source[key]);
+                target[key] = JsonCraft.mergeObjects(target[key], source[key]);
             } else {
                 target[key] = source[key];
             }
@@ -207,7 +207,7 @@ export class JsonKit {
         for (const key in obj) {
             const newKey = parentKey ? `${parentKey}.${key}` : key;
             if (typeof obj[key] === "object" && obj[key] !== null) {
-                JsonKit.flatten(obj[key], newKey, result);
+                JsonCraft.flatten(obj[key], newKey, result);
             } else {
                 result[newKey] = obj[key];
             }
@@ -259,9 +259,9 @@ export class JsonKit {
      * @returns {any[]} - The merged array.
      */
     static mergeArrays(obj: JsonObject, path: string | string[], newArray: any[]): any[] {
-        const existingArray = JsonKit.getValue(obj, path, []);
+        const existingArray = JsonCraft.getValue(obj, path, []);
         const merged = [...new Set([...existingArray, ...newArray])]; // Merges and removes duplicates
-        JsonKit.setValue(obj, path, merged);
+        JsonCraft.setValue(obj, path, merged);
         return merged;
     }
 
@@ -328,7 +328,7 @@ export class JsonKit {
 
         for (const key of keys1) {
             if (!keys2.includes(key)) return false;
-            if (!JsonKit.deepEqual(obj1[key], obj2[key])) return false;
+            if (!JsonCraft.deepEqual(obj1[key], obj2[key])) return false;
         }
         return true;
     }

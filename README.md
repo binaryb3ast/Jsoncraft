@@ -1,7 +1,7 @@
-# jsonkit 🚀
+# JsonCraft 🚀
 
-Welcome to **jsonkit**, the Swiss Army knife for all things JSON! 🎉 Whether you're wrangling with complex, nested data
-or just need a quick way to merge and update JSON objects, **jsonkit** has got you covered.
+Welcome to **JsonCraft**, the Swiss Army knife for all things JSON! 🎉 Whether you're wrangling with complex, nested data
+or just need a quick way to merge and update JSON objects, **JsonCraft** has got you covered.
 
 Built with simplicity and power in mind, this TypeScript library makes it easy to manipulate JSON structures like a pro.
 Say goodbye to messy code and hello to clean, intuitive methods that make JSON manipulation feel like magic. ✨
@@ -51,7 +51,7 @@ getValue(jsonObject, path)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -68,10 +68,10 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-const name = JsonKit.get(data, 'user.name'); // "John Doe"
-const city = JsonKit.get(data, 'user.address.city'); // "New York"
-const firstFriendName = JsonKit.get(data, 'user.friends[0].name'); // "Jane"
+// Example usage with JsonCraft:
+const name = JsonCraft.get(data, 'user.name'); // "John Doe"
+const city = JsonCraft.get(data, 'user.address.city'); // "New York"
+const firstFriendName = JsonCraft.get(data, 'user.friends[0].name'); // "Jane"
 
 console.log(name); // "John Doe"
 console.log(city); // "New York"
@@ -100,7 +100,7 @@ setValue(jsonObject, path, value)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -117,10 +117,10 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-JsonKit.set(data, 'user.name', 'John Smith'); // Update user name
-JsonKit.set(data, 'user.address.city', 'Los Angeles'); // Update city
-JsonKit.set(data, 'user.friends[0].age', 29); // Update Jane's age
+// Example usage with JsonCraft:
+JsonCraft.set(data, 'user.name', 'John Smith'); // Update user name
+JsonCraft.set(data, 'user.address.city', 'Los Angeles'); // Update city
+JsonCraft.set(data, 'user.friends[0].age', 29); // Update Jane's age
 
 console.log(data.user.name); // "John Smith"
 console.log(data.user.address.city); // "Los Angeles"
@@ -148,7 +148,7 @@ hasPath(jsonObject, path)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -165,10 +165,10 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-const hasCity = JsonKit.hasPath(data, 'user.address.city'); // true
-const hasCountry = JsonKit.hasPath(data, 'user.address.country'); // false
-const hasFriendAge = JsonKit.hasPath(data, 'user.friends[0].age'); // true
+// Example usage with JsonCraft:
+const hasCity = JsonCraft.hasPath(data, 'user.address.city'); // true
+const hasCountry = JsonCraft.hasPath(data, 'user.address.country'); // false
+const hasFriendAge = JsonCraft.hasPath(data, 'user.friends[0].age'); // true
 
 console.log(hasCity); // true
 console.log(hasCountry); // false
@@ -196,7 +196,7 @@ deletePath(jsonObject, path)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -213,9 +213,9 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-JsonKit.deletePath(data, 'user.address.city');
-JsonKit.deletePath(data, 'user.friends[0].name');
+// Example usage with JsonCraft:
+JsonCraft.deletePath(data, 'user.address.city');
+JsonCraft.deletePath(data, 'user.friends[0].name');
 
 console.log(data);
 /*
@@ -254,7 +254,7 @@ deepClone(jsonObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON operations
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON operations
 
 const data = {
     user: {
@@ -272,7 +272,7 @@ const data = {
 };
 
 // Create a deep clone of the data object
-const clonedData = JsonKit.deepClone(data);
+const clonedData = JsonCraft.deepClone(data);
 
 // Modify the cloned object
 clonedData.user.name = "Jane Doe";
@@ -338,7 +338,7 @@ mergeObjects(targetObject, sourceObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON operations
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON operations
 
 const data1 = {
     user: {
@@ -369,7 +369,7 @@ const data2 = {
 };
 
 // Merge data2 into data1
-const mergedData = JsonKit.mergeObjects(data1, data2);
+const mergedData = JsonCraft.mergeObjects(data1, data2);
 
 console.log(mergedData);
 /*
@@ -412,7 +412,7 @@ mapKeyTypes(jsonObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON operations
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON operations
 
 const data = {
     user: {
@@ -432,7 +432,7 @@ const data = {
 };
 
 // Map each key to its data type
-const typeMapping = JsonKit.mapKeyTypes(data);
+const typeMapping = JsonCraft.mapKeyTypes(data);
 
 console.log(typeMapping);
 /*
@@ -480,7 +480,7 @@ updateValue(jsonObject, path, newValue)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -493,8 +493,8 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-JsonKit.updateValue(data, 'user.address.city', 'Los Angeles');
+// Example usage with JsonCraft:
+JsonCraft.updateValue(data, 'user.address.city', 'Los Angeles');
 console.log(data);
 // Output: 
 // {
@@ -530,7 +530,7 @@ renameKey(jsonObject, path, newKeyName)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -543,8 +543,8 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-JsonKit.renameKey(data, 'user.contact.phone', 'mobile');
+// Example usage with JsonCraft:
+JsonCraft.renameKey(data, 'user.contact.phone', 'mobile');
 console.log(data);
 // Output: 
 // {
@@ -577,7 +577,7 @@ flatten(jsonObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -593,8 +593,8 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-const flattenedData = JsonKit.flatten(data);
+// Example usage with JsonCraft:
+const flattenedData = JsonCraft.flatten(data);
 console.log(flattenedData);
 // Output:
 // {
@@ -627,7 +627,7 @@ unflatten(flattenedObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const flattenedData = {
     "user.name": "John Doe",
@@ -639,8 +639,8 @@ const flattenedData = {
     "user.friends[1].age": 32
 };
 
-// Example usage with JsonKit:
-const nestedData = JsonKit.unflatten(flattenedData);
+// Example usage with JsonCraft:
+const nestedData = JsonCraft.unflatten(flattenedData);
 console.log(nestedData);
 // Output:
 // {
@@ -677,18 +677,18 @@ isEmpty(value)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const emptyObject = {};
 const nonEmptyObject = {name: "John", age: 30};
 const emptyArray = [];
 const nonEmptyArray = [1, 2, 3];
 
-// Example usage with JsonKit:
-console.log(JsonKit.isEmpty(emptyObject)); // true
-console.log(JsonKit.isEmpty(nonEmptyObject)); // false
-console.log(JsonKit.isEmpty(emptyArray)); // true
-console.log(JsonKit.isEmpty(nonEmptyArray)); // false
+// Example usage with JsonCraft:
+console.log(JsonCraft.isEmpty(emptyObject)); // true
+console.log(JsonCraft.isEmpty(nonEmptyObject)); // false
+console.log(JsonCraft.isEmpty(emptyArray)); // true
+console.log(JsonCraft.isEmpty(nonEmptyArray)); // false
 ```
 
 ---
@@ -712,7 +712,7 @@ mergeArrays(jsonObject, path, newValues)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -724,8 +724,8 @@ const data = {
 // New values to merge into the interests array
 const newInterests = ["traveling", "gaming", "cooking"];
 
-// Example usage with JsonKit:
-JsonKit.mergeArrays(data, 'user.interests', newInterests);
+// Example usage with JsonCraft:
+JsonCraft.mergeArrays(data, 'user.interests', newInterests);
 
 console.log(data.user.interests);
 // Output: ["coding", "gaming", "reading", "traveling", "cooking"]
@@ -750,7 +750,7 @@ pick(jsonObject, keys)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -767,8 +767,8 @@ const data = {
     }
 };
 
-// Example usage with JsonKit:
-const pickedData = JsonKit.pick(data, ['user.name', 'user.age']);
+// Example usage with JsonCraft:
+const pickedData = JsonCraft.pick(data, ['user.name', 'user.age']);
 
 console.log(pickedData);
 // Output: { user: { name: "John Doe", age: 30 } }
@@ -794,7 +794,7 @@ omit(jsonObject, keys)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -812,7 +812,7 @@ const data = {
 };
 
 // Omitting the 'age' key from the user object
-const userWithoutAge = JsonKit.omit(data, ['user.age']);
+const userWithoutAge = JsonCraft.omit(data, ['user.age']);
 
 console.log(userWithoutAge);
 // Output: { user: { name: 'John Doe', address: { city: 'New York', postalCode: 10001 }, friends: [ ... ] } }
@@ -837,7 +837,7 @@ compact(jsonObject)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const data = {
     user: {
@@ -856,7 +856,7 @@ const data = {
 };
 
 // Removing all null and undefined values
-const cleanedData = JsonKit.compact(data);
+const cleanedData = JsonCraft.compact(data);
 
 console.log(cleanedData);
 // Output: { user: { name: 'John Doe', address: { city: 'New York' }, friends: [ ... ] } }
@@ -882,7 +882,7 @@ deepEqual(object1, object2)
 #### Example:
 
 ```javascript
-const JsonKit = require('jsonkit'); // Assuming JsonKit is a library for handling JSON paths
+const JsonCraft = require('JsonCraft'); // Assuming JsonCraft is a library for handling JSON paths
 
 const object1 = {
     user: {
@@ -918,8 +918,8 @@ const object3 = {
 };
 
 // Deep comparison
-console.log(JsonKit.deepEqual(object1, object2)); // true (both objects are deeply equal)
-console.log(JsonKit.deepEqual(object1, object3)); // false (the objects differ in values)
+console.log(JsonCraft.deepEqual(object1, object2)); // true (both objects are deeply equal)
+console.log(JsonCraft.deepEqual(object1, object3)); // false (the objects differ in values)
 ```
 
 
