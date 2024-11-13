@@ -1,5 +1,4 @@
 // Import the transpiled JsonCraft from dist folder (JavaScript version)
-const { JsonCraft } = require('./dist/JsonCraft.js');
+export {JsonCraft} from './JsonCraft'
 
-// Export the JsonCraft class for external use
-module.exports = { JsonCraft };
+
