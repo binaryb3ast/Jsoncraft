@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES6",            // Compiles to ES6 compatible JavaScript
-    "module": "ESNext",         // Use ES Modules (for npm compatibility)
-    "outDir": "./dist",         // Compiled files will go into the "dist" folder
+    "module": "commonjs",
+    "target": "es2019",
+    "outDir": "./dist",
+    "typeRoots": ["node_modules/@types", "dist/types"],  // Ensure types are in dist/types
     "rootDir": "./src",         // The source TypeScript files are in the "src" folder
     "esModuleInterop": true,    // Ensures compatibility with default imports
     "strict": true,             // Enable strict type-checking
@@ -10,6 +11,8 @@
     "declarationDir": "./dist/types",  // Output .d.ts files for type definitions
     "skipLibCheck": true        // Skip type-checking of declaration files
   },
-  "include": ["src/**/*.ts"],   // Only include TypeScript files from "src"
+  "include": [
+    "src/**/*"
+  ],
   "exclude": ["node_modules"]   // Exclude node_modules
 }
